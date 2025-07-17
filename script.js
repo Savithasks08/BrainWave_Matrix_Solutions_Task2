@@ -21,7 +21,7 @@ const products = [
   { id: 20, name: "Doraemon Stickers", price: 50, image: "https://salt.tikicdn.com/cache/w1200/ts/product/b1/04/65/81dc1236915fb7122e01dc195ffd4f07.jpg" },
 ];
 
-// Render products
+//Render products
 function renderProducts(list) {
   const productList = document.getElementById('product-list');
   if (productList) {
@@ -39,17 +39,16 @@ function renderProducts(list) {
     });
   }
 }
-
 renderProducts(products);
 
-// Search
+//Search
 document.getElementById('searchInput')?.addEventListener('input', function() {
   const term = this.value.toLowerCase();
   const filtered = products.filter(p => p.name.toLowerCase().includes(term));
   renderProducts(filtered);
 });
 
-// Sort
+//Sort
 document.getElementById('sortSelect')?.addEventListener('change', function() {
   let sorted = [...products];
   if (this.value === "price-asc") sorted.sort((a,b) => a.price - b.price);
@@ -59,7 +58,7 @@ document.getElementById('sortSelect')?.addEventListener('change', function() {
   renderProducts(sorted);
 });
 
-// Add to Cart
+//Add to Cart
 function addToCart(id) {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
   let product = products.find(p => p.id === id);
@@ -73,13 +72,13 @@ function addToCart(id) {
   alert(`${product.name} added to cart!`);
 }
 
-// View Product Details
+//View Product Details
 function viewProduct(id) {
   const product = products.find(p => p.id === id);
   alert(`Name: ${product.name}\nPrice: Rs.${product.price}\n`);
 }
 
-// Display Cart
+//Display Cart
 const cartItemsDiv = document.getElementById('cart-items');
 if (cartItemsDiv) {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -99,14 +98,14 @@ if (cartItemsDiv) {
   }
 }
 
-// Remove item
+//Remove item
 function removeItem(id) {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
   cart = cart.filter(item => item.id !== id);
   localStorage.setItem('cart', JSON.stringify(cart));
   location.reload();
 }
-// Show cart count in header
+//Show cart count in header
 const cartLink = document.getElementById('cart-link');
 if (cartLink) {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -116,7 +115,7 @@ if (cartLink) {
   }
 }
 
-// Checkout form
+//Checkout form
 document.getElementById('checkoutForm')?.addEventListener('submit', function(e) {
   e.preventDefault();
   const name = document.getElementById('name').value.trim();
