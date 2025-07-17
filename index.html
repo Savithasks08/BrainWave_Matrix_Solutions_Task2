@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Stickers Store</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Stickers Store</h1>
+<header>
+  <nav>
+    <a href="cart.html" id="cart-link" >🛒 Cart</a>
+  </nav>
+</header>
+
+
+  <!-- Search and Sort -->
+  <input type="text" id="searchInput" placeholder="Search products...">
+  <select id="sortSelect">
+    <option value="">Sort By</option>
+    <option value="price-asc">Price: Low to High</option>
+    <option value="price-desc">Price: High to Low</option>
+    <option value="name-asc">Name: A-Z</option>
+    <option value="name-desc">Name: Z-A</option>
+  </select>
+
+  <div class="product-grid" id="product-list"></div>
+  
+  <a href="cart.html">Go to Cart</a>
+  <script src="script.js"></script>
+</body>
+</html>
